@@ -9,17 +9,25 @@ const Footer = () => {
           <img src={assets.logo} className="mb-5 w-32" alt="" />
           <p className="w-full md:w-2/3 text-gray-600">
             Lorem Ipsum is simply dummy text of the printing and typesetting
-            industy. Lorem Ipsum has been the.
+            industy. Lorem Ipsum has been the industy's standard dummy text ever
+            since the 1500s, when an unknows printer took a galley of type and
+            scrambled it to make a type specimen book.
           </p>
         </div>
 
         <div>
           <p className="text-x1 font-medium mb-5">COMPANY</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>Home</li>
-            <li>About us</li>
-            <li>Delivery</li>
-            <li>Privacy policy</li>
+            <li>
+              <a href="/">Home</a>{" "}
+              {/* может стоит изменить реализацию тегов через реакт, как в navbar через navlink */}
+            </li>
+            <li>
+              <a href="/about">About us</a>{" "}
+              {/* может стоит изменить реализацию тегов через реакт, как в navbar через navlink */}
+            </li>
+            <li>Delivery</li> {/* изменить/добавить фунционал */}
+            <li>Privacy policy</li> {/* изменить/добавить фунционал */}
           </ul>
         </div>
 
