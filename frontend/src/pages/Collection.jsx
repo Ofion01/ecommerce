@@ -93,7 +93,7 @@ const Collection = () => {
       <div className="min-w-60">
         <p
           onClick={() => setShowFilter(!showFilter)}
-          className="my-2 text-x1 flex items-center cursor-pointer gap-2"
+          className="my-2 text-xl flex items-center cursor-pointer gap-2"
         >
           FILTERS
           <img
