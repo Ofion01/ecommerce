@@ -1,8 +1,9 @@
 import { v2 as cloudinary } from "cloudinary";
 import productModel from "../models/productModel.js";
 
-// add product, totalproduct list, remove product
+// add product, total product list, remove product
 
+//позже сделаем аутентификация только для админа, чтобы только он мог подключиться с к компонентам(addProduct,removeProduct)
 // function for add product
 const addProduct = async (req, res) => {
   try {
@@ -78,12 +79,38 @@ const addProduct = async (req, res) => {
 };
 
 // function for list product
-const listProducts = async (req, res) => {};
+const listProducts = async (req, res) => {
+  try {
+    const products = await productModel.find({});
+    res.json({ success: true, products });
+  } catch (error) {
+    console.log(error); //без этого не работает
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // function for removing product
-const removeProduct = async (req, res) => {};
+const removeProduct = async (req, res) => {
+  try {
+    await productModel.findByIdAndDelete(req.body.id);
+    res.json({ success: true, message: "Product Removed" });
+  } catch (error) {
+    console.log(error); //без этого не работает
+    res.json({ success: false, message: error.message });
+  }
+};
 
 // function for single product(об отдельном)
-const singleProduct = async (req, res) => {};
+const singleProduct = async (req, res) => {
+  try {
+    const { productId } = req.body;
+    //если нашли продукт, то выводим данные про него
+    const product = await productModel.findById(productId);
+    res.json({ success: true, product });
+  } catch (error) {
+    console.log(error); //без этого не работает
+    res.json({ success: false, message: error.message });
+  }
+};
 
 export { addProduct, listProducts, removeProduct, singleProduct };

@@ -6,12 +6,14 @@ import {
   singleProduct,
 } from "../controllers/productController.js";
 import upload from "../middleware/multer.js";
+import adminAuth from "../middleware/adminAuth.js";
 
 const productRoute = express.Router();
 
 //upload - для изображений
 productRoute.post(
   "/add",
+  adminAuth, //доступно только для админа
   upload.fields([
     {
       name: "image1",
@@ -23,7 +25,7 @@ productRoute.post(
   ]),
   addProduct
 );
-productRoute.post("/remove", removeProduct);
+productRoute.post("/remove", adminAuth, removeProduct);
 productRoute.post("/list", listProducts);
 productRoute.post("/single", singleProduct);
 
