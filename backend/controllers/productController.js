@@ -64,7 +64,7 @@ const addProduct = async (req, res) => {
     // отрабатывается при отправке на сервер запроса(при respond)
     // console.log(imagesUrl); // узнали на каком url адресе хранится изображение
     // console.log(images) // под какими атрибутами хранятся данные
-    console.log(productData);
+    // console.log(productData); // вывод в терминал информацию о добавленном товаре
 
     const product = new productModel(productData);
 

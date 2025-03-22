@@ -1,16 +1,20 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/assets";
+// import { products } from "../assets/assets"; //использовали до подключения к бэку
 import { toast } from "react-toastify"; //для объявление об ошибке
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // для подключения к бэку
 
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = "$";
   const delivery_fee = 10;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [cartItems, setCartItems] = useState({});
+  const [products, setProducts] = useState([]); //для продуктов с бэка
+  const [token, setToken] = useState(""); // для проверки логина юзера
   const navigate = useNavigate(); //добавили для открытия меню совершения покупок
 
   //общий  массив с покупками/исползуется в Product.jsx
@@ -34,6 +38,20 @@ const ShopContextProvider = (props) => {
       cartData[itemId][size] = 1;
     }
     setCartItems(cartData);
+
+    // проверка: если мы зашли в DB мы также обновляем cart
+    if (token) {
+      try {
+        await axios.post(
+          backendUrl + "/api/cart/add",
+          { itemId, size },
+          { headers: { token } }
+        );
+      } catch (error) {
+        console.log(error);
+        toast.error(error.message);
+      }
+    }
   };
 
   // посмотреть, какие товары в массиве покупок
@@ -78,6 +96,35 @@ const ShopContextProvider = (props) => {
     }
     return totalAmount;
   };
+
+  //получаем данные о продуктах с бэка
+  const getProductsData = async () => {
+    try {
+      const response = await axios.get(backendUrl + "/api/product/list");
+      // console.log(response.data); вывод в консоль всех доступных продуктов на бэке
+      if (response.data.success) {
+        setProducts(response.data.products);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
+  };
+  //вызываем функцию getProducts data
+  useEffect(() => {
+    getProductsData();
+  }, []);
+
+  //
+  useEffect(() => {
+    //если токен не доступен, но он есть в localstorage, берем его из localstorage
+    if (!token && localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
+
   // при созданиии нового объекта, мы сможем в нем получить доступ к значениям, которые находся в константе value
   const value = {
     products,
@@ -93,6 +140,9 @@ const ShopContextProvider = (props) => {
     updateQuantity,
     getCartAmount,
     navigate,
+    backendUrl,
+    setToken,
+    token,
   };
 
   return (
