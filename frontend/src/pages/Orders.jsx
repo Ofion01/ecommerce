@@ -1,9 +1,48 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import Title from "../components/Title";
+import axios from "axios";
 
 const Orders = () => {
-  const { products, currency } = useContext(ShopContext);
+  // const { products, currency } = useContext(ShopContext); до ↓ было так
+  const { backendUrl, token, currency } = useContext(ShopContext); // благодаря backendURL и token получаем ордера пользователя
+
+  const [orderData, setorderData] = useState([]);
+
+  const loadOrderData = async () => {
+    try {
+      if (!token) {
+        return null;
+      }
+
+      const response = await axios.post(
+        backendUrl + "/api/order/userorders",
+        {},
+        { headers: { token } }
+      );
+      // console.log(response.data);
+      //показываем ордера .зера
+      if (response.data.success) {
+        let allOrdersItem = [];
+        response.data.orders.map((order) => {
+          order.items.map((item) => {
+            (item["status"] = order.status),
+              (item["payment"] = order.payment),
+              (item["paymentMethod"] = order.paymentMethod),
+              (item["date"] = order.date),
+              allOrdersItem.push(item);
+          });
+        });
+        // console.log(allOrdersItem);
+        setorderData(allOrdersItem.reverse()); //вывод ордеров юзера
+      }
+    } catch (error) {}
+  };
+
+  // проверка на обноление страницы
+  useEffect(() => {
+    loadOrderData();
+  }, [token]);
   return (
     <div className="border-t pt-16">
       <div className="text-2xl">
@@ -11,7 +50,7 @@ const Orders = () => {
       </div>
 
       <div>
-        {products.slice(1, 4).map((item, index) => (
+        {orderData.map((item, index) => (
           <div
             key={index}
             className="py-4 border-t border-b text-gray-700 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
@@ -21,15 +60,18 @@ const Orders = () => {
               <div>
                 <p className="sm:text-base font-medium">{item.name}</p>
                 <div className="flex items-center gap-3 mt-2 text-base text-gray-700">
-                  <p className="text-lg">
+                  <p>
                     {currency}
                     {item.price}
                   </p>
-                  <p>Quantity: 1</p>
-                  <p>Size: M</p>
+                  <p>Quantity: {item.quantity}</p>
+                  <p>Size: {item.size}</p>
                 </div>
                 <p className="mt-2">
-                  Date: <span className="text-gray-400">25, Jul, 2024</span>
+                  Date:{" "}
+                  <span className="text-gray-400">
+                    {new Date(item.date).toDateString()}
+                  </span>
                 </p>
               </div>
             </div>
