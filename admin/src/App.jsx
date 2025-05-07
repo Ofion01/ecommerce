@@ -10,7 +10,7 @@ import "react-toastify/ReactToastify.css";
 import List from "./pages/List.jsx";
 
 export const backendUrl = import.meta.env.VITE_BAKCEND_URL;
-export const currency = "$"; //замена на P
+export const currency = "$"; //замена на Pубль
 const App = () => {
   //сначала проверяем localstorage на доступность, если нет доступа, возвращаяем ""
   const [token, setToken] = useState(
