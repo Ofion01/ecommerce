@@ -124,8 +124,8 @@ const verifyStripe = async (req, res) => {
   }
 };
 
-// Placing orders using Razorpay Method
-const placeOrderRazorpay = async (req, res) => {};
+// // Placing orders using Razorpay Method Отмена, в силу невозможности подключения
+// const placeOrderRazorpay = async (req, res) => {};
 
 // Вывод всех оредров в админе
 // All Orders data for admin Panel
