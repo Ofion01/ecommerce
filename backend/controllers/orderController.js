@@ -1,4 +1,6 @@
 // import { currency } from "../../admin/src/App.jsx";
+import dotenv from "dotenv";
+dotenv.config(); // 👈 Это должно быть первым
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/UserModel.js";
 import Stripe from "stripe";
