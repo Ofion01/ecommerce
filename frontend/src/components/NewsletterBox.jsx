@@ -8,11 +8,11 @@ const NewsletterBox = () => {
   return (
     <div className=" text-center">
       <p className="text-2x1 font-medium text-gray-800">
-        Subscribe now & get 20% off
+        Подпишитесь сейчас & получите скидку 20%
       </p>
       <p className="text-gray-400 mt-3">
-        Lorem Impsum is simply dummy text of the printing and typesetting
-        industry.
+        Выгодные предложения на избранные модели — стиль стал ещё доступнее.
+        Успейте воспользоваться до конца акции!
       </p>
       <form
         onSubmit={onSubmiteHandler}
@@ -21,14 +21,14 @@ const NewsletterBox = () => {
         <input
           className="w-full sm:flex-1 outline-none"
           type="email"
-          placeholder="Enter your email"
+          placeholder="Email"
           required
         />
         <button
           type="submit"
           className="bg-black text-white text-xs px-10 py-4"
         >
-          SUBSCRIBE
+          ПОДПИСАТЬСЯ
         </button>
       </form>
     </div>

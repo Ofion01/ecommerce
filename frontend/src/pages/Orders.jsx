@@ -46,7 +46,7 @@ const Orders = () => {
   return (
     <div className="border-t pt-16">
       <div className="text-2xl">
-        <Title text1={"MY"} text2={"ORDERS"} />
+        <Title text1={"МОИ"} text2={"ЗАКАЗЫ"} />
       </div>
 
       <div>
@@ -64,17 +64,17 @@ const Orders = () => {
                     {currency}
                     {item.price}
                   </p>
-                  <p>Quantity: {item.quantity}</p>
-                  <p>Size: {item.size}</p>
+                  <p>Количество: {item.quantity}</p>
+                  <p>Размер: {item.size}</p>
                 </div>
                 <p className="mt-1">
-                  Date:{" "}
+                  Дата:{" "}
                   <span className="text-gray-400">
                     {new Date(item.date).toDateString()}
                   </span>
                 </p>
                 <p className="mt-1">
-                  Payment:{" "}
+                  Оплата:{" "}
                   <span className="text-gray-400">{item.paymentMethod}</span>
                 </p>
               </div>
@@ -88,7 +88,7 @@ const Orders = () => {
                 onClick={loadOrderData}
                 className="border px-4 py-2 text-sm font-medium rounded-sm"
               >
-                Track Order
+                Отследить Заказ
               </button>
             </div>
           </div>

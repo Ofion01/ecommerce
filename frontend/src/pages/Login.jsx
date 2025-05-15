@@ -77,7 +77,7 @@ const Login = () => {
           value={name}
           type="text"
           className="w-full px-3 py-2 border border-gray-800"
-          placeholder="Name"
+          placeholder="Ваше Имя"
           required
         ></input>
       )}
@@ -94,25 +94,25 @@ const Login = () => {
         value={password}
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
-        placeholder="Password"
+        placeholder="Пароль"
         required
       ></input>
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className="cursor-pointer">Forgot your password?</p>
+        <p className="cursor-pointer">Забыли пароль?</p>
         {/* Переход между входом/регистрацией */}
         {currentState === "Login" ? (
           <p
             onClick={() => setCurrentState("Sign Up")}
             className="cursor-pointer"
           >
-            Create account
+            Создать аккаунт
           </p>
         ) : (
           <p
             onClick={() => setCurrentState("Login")}
             className="cursor-pointer"
           >
-            Login Here
+            Авторизоваться
           </p>
         )}
       </div>

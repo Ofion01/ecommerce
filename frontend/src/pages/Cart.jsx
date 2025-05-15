@@ -31,7 +31,7 @@ const Cart = () => {
   return (
     <div className="border-t pt-14">
       <div className="text-2xl mb-3">
-        <Title text1={"YOUR"} text2={"CART"} />
+        <Title text1={"ВАША"} text2={"КОРЗИНА"} />
       </div>
 
       <div>
@@ -106,7 +106,7 @@ const Cart = () => {
             >
               {" "}
               {/* переход на страницу оплаты */}
-              PROCCED TO CHECKOUT
+              ПЕРЕЙТИ К ОФОРМЛЕНИЮ ЗАКАЗА
             </button>
           </div>
         </div>

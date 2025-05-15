@@ -8,34 +8,38 @@ const Footer = () => {
         <div>
           <img src={assets.logo} className="mb-5 w-32" alt="" />
           <p className="w-full md:w-2/3 text-gray-600">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industy. Lorem Ipsum has been the industy's standard dummy text ever
-            since the 1500s, when an unknows printer took a galley of type and
-            scrambled it to make a type specimen book.
+            Деловой — это онлайн-магазин современной деловой одежды и
+            аксессуаров. Мы собрали более 2 тысяч брендов, предлагающих стильные
+            и удобные решения для офиса, деловых встреч и повседневной работы.
+            Костюмы, рубашки, обувь, сумки, галстуки и многое другое — всё, что
+            нужно для уверенного и профессионального образа. Удобная доставка,
+            возможность примерки, бонусная программа и регулярные акции — мы
+            делаем ваш шопинг практичным, быстрым и выгодным.
           </p>
         </div>
 
         <div>
-          <p className="text-x1 font-medium mb-5">COMPANY</p>
+          <p className="text-x1 font-medium mb-5">КОМПАНИЯ</p>
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>
-              <a href="/">Home</a>{" "}
+              <a href="/">Главная</a>{" "}
               {/* может стоит изменить реализацию тегов через реакт, как в navbar через navlink */}
             </li>
             <li>
-              <a href="/about">About us</a>{" "}
+              <a href="/about">О нас</a>{" "}
               {/* может стоит изменить реализацию тегов через реакт, как в navbar через navlink */}
             </li>
-            <li>Delivery</li> {/* изменить/добавить фунционал */}
-            <li>Privacy policy</li> {/* изменить/добавить фунционал */}
+            <li>Доставка</li> {/* изменить/добавить фунционал */}
+            <li>Политика конфиденциальности</li>{" "}
+            {/* изменить/добавить фунционал */}
           </ul>
         </div>
 
         <div>
-          <p className="text-x1 font-medium mb-5">GET IN TOUCH</p>
+          <p className="text-x1 font-medium mb-5">КОНТАКТЫ</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>+1-212-456-7890</li>
-            <li>contact@email.com</li>
+            <li>+7-987-654-3210</li>
+            <li>delovoy@mail.com</li>
           </ul>
         </div>
       </div>
@@ -43,7 +47,7 @@ const Footer = () => {
       <div>
         <hr />
         <p className="py-5 text-sm text-center">
-          Copyright 2024@ forever.com - All Right Reserved.
+          Copyright 2024@ delovoy.com - Все права защищены.
         </p>
       </div>
     </div>

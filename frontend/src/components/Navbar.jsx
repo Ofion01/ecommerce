@@ -32,22 +32,22 @@ const Navbar = () => {
       {/*menu-items*/}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
+          <p>ГЛАВНАЯ</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          <p>COLLECTION</p>
+          <p>КОЛЛЕКЦИЯ</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT</p>
+          <p>О НАС</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
 
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
+          <p>КОНТАКТ</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
       </ul>
@@ -71,15 +71,15 @@ const Navbar = () => {
           {token && ( //если пользователь не вошёл, меню не будет показано
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
               <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-                <p className="cursor-pointer hover:text-black">My Profile</p>
+                <p className="cursor-pointer hover:text-black">Мой профиль</p>
                 <p
                   onClick={() => navigate("/orders")}
                   className="cursor-pointer hover:text-black"
                 >
-                  Orders
+                  Заказы
                 </p>
                 <p onClick={logout} className="cursor-pointer hover:text-black">
-                  Logout
+                  Выход
                 </p>
               </div>
             </div>
@@ -114,35 +114,35 @@ const Navbar = () => {
             {" "}
             {/*Возвращает обратно к навбару */}
             <img className="h4 rotate-180" src={assets.dropdown_icon} alt="" />
-            <p>Back</p>
+            <p>Назад</p>
           </div>
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
             to="/"
           >
-            HOME
+            ГЛАВНАЯ
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
             to="/collection"
           >
-            COLLECTION
+            КОЛЛЕКЦИЯ
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
             to="/about"
           >
-            ABOUT
+            О НАС
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}
             className="py-2 pl-6 border"
             to="/contact"
           >
-            CONTACT
+            КОНТАКТ
           </NavLink>
         </div>
       </div>

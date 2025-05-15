@@ -6,7 +6,7 @@ import userModel from "../models/UserModel.js";
 import Stripe from "stripe";
 
 // global variables
-const currency = "inr"; //поменять на доллар/рубль (сейчас указана индийская валюта) СЕЙЧАС CURRENCY БЕРЕТСЯ ИЗ АПКИ АДМИНКИ, В СЛУЧАЕ
+const currency = "rub"; //поменять на доллар/рубль (сейчас указана индийская валюта) СЕЙЧАС CURRENCY БЕРЕТСЯ ИЗ АПКИ АДМИНКИ, В СЛУЧАЕ
 // ЕСЛИ НУЖНО ОСТАВИТЬ inr раскаментить это и закоменить иморт currency из App.jsx
 const deliveryCharge = 10;
 
@@ -81,7 +81,7 @@ const placeOrderStripe = async (req, res) => {
       price_data: {
         currency: currency,
         product_data: {
-          name: "Delivery Charges",
+          name: "Стоимость доставки",
         },
         unit_amount: deliveryCharge * 100,
       },

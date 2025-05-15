@@ -49,17 +49,17 @@ const List = ({ token }) => {
 
   return (
     <>
-      <p className="mb-2">All Products List</p>
+      <p className="mb-2">Список всех товаров</p>
       <div className="flex flex-col gap">
         {/* ------- List Table Title ------- */}
         <div className="hidden md:grid grid-cols-[1fr_3fr_1fr_1fr_1fr] items-center border-gray-100 py-1 px-2  text-sm">
           {" "}
           {/* убрал border bg-gray-100, т.к появляется черная рамка. Вместо этого написал border-gray-100 */}
-          <b>Image</b>
-          <b>Name</b>
-          <b>Category</b>
-          <b>Price</b>
-          <b className="text-center">Action</b>
+          <b>Изображения</b>
+          <b>Название</b>
+          <b>Категория</b>
+          <b>Цена</b>
+          <b className="text-center"></b> {/* Убрал "Действие" */}
         </div>
 
         {/* ------ Product List ------ */}

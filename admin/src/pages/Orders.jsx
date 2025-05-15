@@ -53,7 +53,7 @@ const Orders = ({ token }) => {
   // вывод ордеров на странице ордеров
   return (
     <div>
-      <h3>Order Page</h3>
+      <h3>Страинца Заказов</h3>
       <div>
         {orders.map((order, index) => (
           <div
@@ -103,11 +103,11 @@ const Orders = ({ token }) => {
             {/* Display order details: order, quantity, method, payment method, payment status and date */}
             <div>
               <p className="text-sm sm:text-[15px]">
-                Items : {order.items.length}
+                Товары : {order.items.length}
               </p>
-              <p className="mt-3">Method : {order.paymentMethod}</p>
-              <p>Payment : {order.payment ? "Done" : "Penging"}</p>
-              <p>Date : {new Date(order.date).toLocaleDateString()}</p>
+              <p className="mt-3">Метод : {order.paymentMethod}</p>
+              <p>Оплата : {order.payment ? "Done" : "Penging"}</p>
+              <p>Дата : {new Date(order.date).toLocaleDateString()}</p>
             </div>
             <p className="text-sm sm:text-[15px]">
               {currency}
@@ -119,11 +119,12 @@ const Orders = ({ token }) => {
               value={order.status}
               className="p-2 font-semibold"
             >
-              <option value="Order Placed">Order Placed</option>
-              <option value="Packing">Packing</option>
-              <option value="Shipped">Shipped</option>
-              <option value="Out for delivery">Out for delivery</option>
-              <option value="Delivered">Delivered</option>
+              {/* Изначально на английском было */}
+              <option value="Заказ размещен">Заказ размещен</option>
+              <option value="Упаковывается">Упаковывается</option>
+              <option value="Отправлен">Отправлен</option>
+              <option value="Готово к доставке">Готово к доставке</option>
+              <option value="Доставлено">Доставлено</option>
             </select>
           </div>
         ))}

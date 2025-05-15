@@ -71,7 +71,7 @@ const addProduct = async (req, res) => {
     //сохраняем продукт в DB
     await product.save();
 
-    res.json({ success: true, message: "Product Added" });
+    res.json({ success: true, message: "Товар добавлен" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -93,7 +93,7 @@ const listProducts = async (req, res) => {
 const removeProduct = async (req, res) => {
   try {
     await productModel.findByIdAndDelete(req.body.id);
-    res.json({ success: true, message: "Product Removed" });
+    res.json({ success: true, message: "Товар удален" });
   } catch (error) {
     console.log(error); //без этого не работает
     res.json({ success: false, message: error.message });

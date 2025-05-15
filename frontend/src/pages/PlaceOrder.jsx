@@ -119,7 +119,7 @@ const PlaceOrder = () => {
       {/* ----------------- Left Side -----------------*/}
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3">
-          <Title text1={"DELIVERY"} text2={"INFORMATION"} />
+          <Title text1={"ИНФОРМАЦИЯ"} text2={"О ДОСТАВКЕ"} />
         </div>
         <div className="flex gap-3">
           <input
@@ -129,7 +129,7 @@ const PlaceOrder = () => {
             value={formData.firstName}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="text"
-            placeholder="First name"
+            placeholder="Имя"
           />
           <input
             required
@@ -138,7 +138,7 @@ const PlaceOrder = () => {
             value={formData.lastName}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="text"
-            placeholder="Last name"
+            placeholder="Фамилия"
           />
         </div>
         <input
@@ -148,7 +148,7 @@ const PlaceOrder = () => {
           value={formData.email}
           className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
           type="email"
-          placeholder="Email address"
+          placeholder="Email"
         />
         <input
           required
@@ -157,7 +157,7 @@ const PlaceOrder = () => {
           value={formData.street}
           className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
           type="text"
-          placeholder="Street"
+          placeholder="Улица"
         />
         <div className="flex gap-3">
           <input
@@ -167,7 +167,7 @@ const PlaceOrder = () => {
             value={formData.city}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="text"
-            placeholder="City"
+            placeholder="Город"
           />
           <input
             required
@@ -176,7 +176,7 @@ const PlaceOrder = () => {
             value={formData.state}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="text"
-            placeholder="State"
+            placeholder="Регион"
           />
         </div>
         <div className="flex gap-3">
@@ -187,7 +187,7 @@ const PlaceOrder = () => {
             value={formData.zipcode}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="number"
-            placeholder="Zipcode"
+            placeholder="Zip-код"
           />
           <input
             required
@@ -196,7 +196,7 @@ const PlaceOrder = () => {
             value={formData.country}
             className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
             type="text"
-            placeholder="Country"
+            placeholder="Страна"
           />
         </div>
         <input
@@ -206,7 +206,7 @@ const PlaceOrder = () => {
           value={formData.phone}
           className="border border-gray-300 rounded py-1.5 px-3.5 w-full"
           type="number"
-          placeholder="Phone"
+          placeholder="Телефон"
         />
       </div>
 
@@ -216,7 +216,7 @@ const PlaceOrder = () => {
           <CartTotal />
         </div>
         <div className="mt-12">
-          <Title text1={"PAYMENT"} text2={"METHOD"} />
+          <Title text1={"МЕТОД"} text2={"ОПЛАТЫ"} />
           {/* ----------------- Payment Method Selection -----------------*/}
           <div className="flex gap-3 flex-col lg:flex-row">
             <div
@@ -252,7 +252,7 @@ const PlaceOrder = () => {
                 }`}
               ></p>
               <p className="text-gray-500 text-sm font-medium mx-4">
-                CASH ON DELIVERY
+                ОПЛАТА НАЛИЧНЫМИ
               </p>
             </div>
           </div>
@@ -264,7 +264,7 @@ const PlaceOrder = () => {
               // onClick={() => navigate("/orders")}
               className="bg-black text-white px-16 py-3"
             >
-              PLACE ORDER
+              ОФОРМИТЬ ЗАКАЗ
             </button>
           </div>
         </div>

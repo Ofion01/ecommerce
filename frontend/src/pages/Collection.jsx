@@ -95,7 +95,7 @@ const Collection = () => {
           onClick={() => setShowFilter(!showFilter)}
           className="my-2 text-xl flex items-center cursor-pointer gap-2"
         >
-          FILTERS
+          ФИЛЬТРЫ
           <img
             className={`h-3 sm:hidden ${showFilter ? "rotate-90" : ""}`}
             src={assets.dropdown_icon}
@@ -108,7 +108,7 @@ const Collection = () => {
             showFilter ? "" : "hidden"
           } sm:block`}
         >
-          <p className="mb-3 text-sm font-medium">CATEGORIES</p>
+          <p className="mb-3 text-sm font-medium">КАТЕГОРИИ</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
             <p className="flex gap-2">
               <input
@@ -117,7 +117,7 @@ const Collection = () => {
                 value={"Men"}
                 onChange={toggleCategory}
               />{" "}
-              Men
+              Мужчинам
             </p>
 
             <p className="flex gap-2">
@@ -127,7 +127,7 @@ const Collection = () => {
                 value={"Women"}
                 onChange={toggleCategory}
               />{" "}
-              Women
+              Женщинам
             </p>
 
             <p className="flex gap-2">
@@ -137,7 +137,7 @@ const Collection = () => {
                 value={"Kids"}
                 onChange={toggleCategory}
               />{" "}
-              Kids
+              Детям
             </p>
           </div>
         </div>
@@ -148,7 +148,7 @@ const Collection = () => {
             showFilter ? "" : "hidden"
           } sm:block`}
         >
-          <p className="mb-3 text-sm font-medium">TYPE</p>
+          <p className="mb-3 text-sm font-medium">ТИП ОДЕЖДЫ</p>
           <div className="flex flex-col gap-2 text-sm font-light txt-gray-700">
             <p className="flex gap-2">
               <input
@@ -157,7 +157,7 @@ const Collection = () => {
                 value={"Topwear"}
                 onChange={toggleSubCategory}
               />{" "}
-              Topwear
+              Верхняя одежда
             </p>
 
             <p className="flex gap-2">
@@ -167,7 +167,7 @@ const Collection = () => {
                 value={"Bottomwear"}
                 onChange={toggleSubCategory}
               />{" "}
-              Bottomwear
+              Нижняя одежда
             </p>
 
             <p className="flex gap-2">
@@ -177,7 +177,7 @@ const Collection = () => {
                 value={"Winterwear"}
                 onChange={toggleSubCategory}
               />{" "}
-              Winterwear
+              Зимняя одежда
             </p>
           </div>
         </div>
@@ -186,15 +186,19 @@ const Collection = () => {
       {/* Right Side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
-          <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <Title text1={"ВСЕ"} text2={"КОЛЛЕКЦИИ"} />
           {/* Product Sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}
             className="border-2 border-gray-300 text-sm px-2"
           >
-            <option value="relavent">Sort by: Relavent</option>
-            <option value="low-high">Sort by: Low to Hight</option>
-            <option value="high-low">Sort by: High to Low</option>
+            <option value="relavent">Сортировать по: Бестселлеры</option>
+            <option value="low-high">
+              Сортировать по: от Низкой к Высокой
+            </option>
+            <option value="high-low">
+              Сортировать по: от Высокой к Низкой
+            </option>
           </select>
         </div>
 

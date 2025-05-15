@@ -28,7 +28,7 @@ const addToCart = async (req, res) => {
 
     // await userModel.findByIdAndUpdate(id, { cartData });
     await userModel.findByIdAndUpdate(userId, { cartData });
-    res.json({ success: true, message: "Added to Cart" });
+    res.json({ success: true, message: "Добавлено в Корзину" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -48,7 +48,7 @@ const updateCart = async (req, res) => {
 
     //сохраняем carData в DB
     await userModel.findByIdAndUpdate(userId, { cartData });
-    res.json({ success: true, message: "Cart Updated " });
+    res.json({ success: true, message: "Корзина Обновлена " });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });

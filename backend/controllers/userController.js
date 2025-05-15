@@ -18,7 +18,10 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       //если user не доступен
-      return res.json({ success: false, message: "User doesn't exists" });
+      return res.json({
+        success: false,
+        message: "Пользователя не существует",
+      });
     }
 
     //если функция успешно инициализировалось то мы сравниваем пароль с паролем в юзера в ДБ
@@ -28,7 +31,7 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid credentials" }); //неправльные дааные
+      res.json({ success: false, message: "Недействительные данные" }); //неправльные дааные
     }
   } catch (error) {
     console.log(error);
@@ -45,14 +48,17 @@ const registerUser = async (req, res) => {
     // проверка: существует ли пользовать? (checking user already exists or not)
     const exists = await userModel.findOne({ email }); //проверка по email
     if (exists) {
-      return res.json({ success: false, message: "User already exists" });
+      return res.json({
+        success: false,
+        message: "Пользователь уже существует",
+      });
     }
 
     // проверка формата(валидация) электронной почты и надежного пароля
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
-        message: "Please enter a valid email",
+        message: "Пожалуйста, введите действительный адрес электронной почты",
       });
     }
 
@@ -60,7 +66,7 @@ const registerUser = async (req, res) => {
       // добавить доп проверки на капс буквы и т.п
       return res.json({
         success: false,
-        message: "Please enter a strong password",
+        message: "Пожалуйста, введите надежный пароль",
       });
     }
 
@@ -103,7 +109,7 @@ const adminLogin = async (req, res) => {
       const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({ success: true, token });
     } else {
-      res.json({ success: false, message: "Invalid credentials" });
+      res.json({ success: false, message: "Недействительные данные" });
     }
   } catch (error) {
     console.log(error);
