@@ -192,7 +192,7 @@ const Collection = () => {
             onChange={(e) => setSortType(e.target.value)}
             className="border-2 border-gray-300 text-sm px-2"
           >
-            <option value="relavent">Сортировать по: Бестселлеры</option>
+            {/* <option value="relavent">Сортировать по: Бестселлеры</option> */}
             <option value="low-high">
               Сортировать по: от Низкой к Высокой
             </option>
