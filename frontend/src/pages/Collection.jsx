@@ -194,10 +194,10 @@ const Collection = () => {
           >
             {/* <option value="relavent">Сортировать по: Бестселлеры</option> */}
             <option value="low-high">
-              Сортировать по: от Низкой к Высокой
+              Сортировать по цене: от Низкой к Высокой
             </option>
             <option value="high-low">
-              Сортировать по: от Высокой к Низкой
+              Сортировать по цене: от Высокой к Низкой
             </option>
           </select>
         </div>
