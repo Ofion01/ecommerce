@@ -5,7 +5,10 @@ const authUser = async (req, res, next) => {
   const { token } = req.headers;
   if (!token) {
     //если не доступен
-    return res.json({ success: false, message: "Not Authorized Login Again" });
+    return res.json({
+      success: false,
+      message: "Несанкционированный вход в систему",
+    });
   }
 
   try {

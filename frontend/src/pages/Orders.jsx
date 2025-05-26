@@ -68,9 +68,14 @@ const Orders = () => {
                   <p>Размер: {item.size}</p>
                 </div>
                 <p className="mt-1">
+                  {/* Изменил под RU-RU */}
                   Дата:{" "}
                   <span className="text-gray-400">
-                    {new Date(item.date).toDateString()}
+                    {new Date(item.date).toLocaleDateString("ru-RU", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
                   </span>
                 </p>
                 <p className="mt-1">

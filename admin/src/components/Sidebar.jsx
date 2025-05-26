@@ -20,7 +20,7 @@ const Sidebar = () => {
           to="/list"
         >
           <img className="w-5 h-5" src={assets.order_icon} alt=""></img>
-          <p className="hidden md:block">Список товара</p>
+          <p className="hidden md:block">Список товаров</p>
         </NavLink>
 
         <NavLink

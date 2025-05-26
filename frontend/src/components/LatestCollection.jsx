@@ -17,7 +17,7 @@ const LatestCollection = () => {
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3x1">
-        <Title text1={"ПОСЛЕДНИЕ"} text2={"КОЛЛЕКЦИИ"} />
+        <Title text1={"АКТУАЛЬНАЯ"} text2={"КОЛЛЕКЦИЯ"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
           Деловой стиль - Это язык уверенности, собранности и внутренней силы. В
           каждом образе — стремление к цели, внимание к деталям и уважение к
