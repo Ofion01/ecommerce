@@ -7,6 +7,8 @@ import userRouter from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
+import vacanciesRouter from "./routes/vacanciesRoute.js";
+import applicationRouter from "./routes/applicationRoute.js";
 
 // App Config
 const app = express();
@@ -23,6 +25,8 @@ app.use("/api/user", userRouter);
 app.use("/api/product", productRoute);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/vacancies", vacanciesRouter);
+app.use("/api/applications", applicationRouter);
 
 app.get("/", (req, res) => {
   //вывели сообщение в браузере

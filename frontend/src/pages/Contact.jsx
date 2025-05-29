@@ -2,8 +2,15 @@ import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import NewsletterBox from "../components/NewsletterBox";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleVacanciesClick = () => {
+    navigate("/vacancies");
+  };
+
   return (
     <div>
       <div className="text-center text-2xl pt-10 border-t">
@@ -31,13 +38,16 @@ const Contact = () => {
           <p className="text-gray-500">
             Узнайте больше о наших командах и вакансиях.
           </p>
-          <button className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500">
+          <button
+            onClick={handleVacanciesClick}
+            className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500"
+          >
             Посмотреть вакансии
           </button>
         </div>
       </div>
 
-      <NewsletterBox />
+      {/* <NewsletterBox /> */}
     </div>
   );
 };

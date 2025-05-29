@@ -30,6 +30,24 @@ const Sidebar = () => {
           <img className="w-5 h-5" src={assets.order_icon} alt=""></img>
           <p className="hidden md:block">Заказы</p>
         </NavLink>
+        <NavLink
+          className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          to="/admin/vacancies/add"
+        >
+          <img
+            className="w-5 h-5"
+            src={assets.add_icon}
+            alt="Добавить вакансию"
+          />
+          <p className="hidden md:block">Добавить вакансию</p>
+        </NavLink>
+        <NavLink
+          className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
+          to="/vacancies"
+        >
+          <img className="w-5 h-5" src={assets.vacancy} alt="Вакансии" />
+          <p className="hidden md:block">Вакансии</p>
+        </NavLink>
       </div>
     </div>
   );

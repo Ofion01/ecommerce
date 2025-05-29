@@ -13,7 +13,7 @@ const Add = ({ token }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Topwear");
+  const [subCategory, setSubCategory] = useState("Jackets");
   const [bestseller, setBestseller] = useState(false);
   const [sizes, setSizes] = useState([]);
 
@@ -161,9 +161,9 @@ const Add = ({ token }) => {
               onChange={(e) => setCategory(e.target.value)}
               className="w-full px-3 py-2"
             >
-              <option value="Men">Мужчина</option>
-              <option value="Women">Женщина</option>
-              <option value="Kids">Дети</option>
+              <option value="Men">Мужчинам</option>
+              <option value="Women">Женщинам</option>
+              {/* <option value="Kids">Дети</option> */}
             </select>
           </div>
 
@@ -173,9 +173,17 @@ const Add = ({ token }) => {
               onChange={(e) => setSubCategory(e.target.value)}
               className="w-full px-3 py-2"
             >
-              <option value="Topwear">Верхняя одежда</option>
+              {/* <option value="Topwear">Верхняя одежда</option>
               <option value="Bottomwear">Нижняя одежда</option>
               <option value="Winterwear">Зимняя одежда</option>
+              <option value="Suits">Костюмы</option> */}
+              <option value="Jackets">Пиджаки и жакеты</option>
+              <option value="Shirts">Рубашки и блузки</option>
+              <option value="Trousers">Брюки и юбки</option>
+              <option value="Dresses">Платья</option>
+              <option value="Outerwear">Пальто и плащи</option>
+              <option value="Accessories">Аксессуары</option>
+              <option value="Shoes">Обувь</option>
             </select>
           </div>
 
@@ -278,6 +286,23 @@ const Add = ({ token }) => {
                 } px-3 py-1 cursor-pointer`}
               >
                 XXL
+              </p>
+            </div>
+            <div
+              onClick={() =>
+                setSizes((prev) =>
+                  prev.includes("One Size")
+                    ? prev.filter((item) => item !== "One Size")
+                    : [...prev, "One Size"]
+                )
+              }
+            >
+              <p
+                className={`${
+                  sizes.includes("One Size") ? "bg-pink-100" : "bg-slate-200"
+                } px-3 py-1 cursor-pointer`}
+              >
+                One Size
               </p>
             </div>
           </div>

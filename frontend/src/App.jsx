@@ -15,6 +15,9 @@ import SearchBar from "./components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import Verify from "./pages/Verify";
+import Vacancies from "./pages/Vacancies";
+import VacancyDetails from "./components/VacancyDetails";
+import PrivacyPolicy from "./pages/PrivacyPolicies";
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
@@ -34,6 +37,9 @@ const App = () => {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/verify" element={<Verify />} />
+        <Route path="/vacancies" element={<Vacancies />} />
+        <Route path="/vacancies/:vacancyId" element={<VacancyDetails />} />
+        <Route path="/privacypolicies" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </div>

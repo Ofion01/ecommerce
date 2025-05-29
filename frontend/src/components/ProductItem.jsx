@@ -10,7 +10,7 @@ const ProductItem = ({ id, image, name, price }) => {
       {" "}
       {/* при клике на продукт открывается окошко продукта по его id  */}
       {/* добавил w-[300px] h-[350px] для установки любых размеров для изображений */}
-      <div className="overflow-hidden w-[300px] h-[350px]">
+      <div className="overflow-hidden h-[320px]">
         <img
           className="hover:scale-110 transition ease-in-out"
           src={image[0]}

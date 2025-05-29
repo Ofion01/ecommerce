@@ -23,7 +23,7 @@ const addProduct = async (req, res) => {
     const image1 = req.files.image1 && req.files.image1[0]; //если image1 доступно(имеется),выпонляется команда
     const image2 = req.files.image2 && req.files.image2[0];
     const image3 = req.files.image3 && req.files.image3[0];
-    const image4 = req.files.image3 && req.files.image4[0];
+    const image4 = req.files.image4 && req.files.image4[0];
 
     //фильтр для undefined, чтобы не загружались пустые изображения(не имеющися на входе в respond) Благодяра этому можем загружать от 1 до 4 изображений, не обязательно 4
     const images = [image1, image2, image3, image4].filter(

@@ -17,6 +17,11 @@ const ShopContextProvider = (props) => {
   const [token, setToken] = useState(""); // для проверки логина юзера
   const navigate = useNavigate(); //добавили для открытия меню совершения покупок
 
+  //Данные для вакансий
+  const [vacancies, setVacancies] = useState([]);
+  const [vacanciesLoading, setVacanciesLoading] = useState(true);
+  const [vacanciesError, setVacanciesError] = useState(null);
+
   //общий  массив с покупками/исползуется в Product.jsx
   const addToCart = async (itemId, size) => {
     //проверка - выбран ли размер?
@@ -145,9 +150,47 @@ const ShopContextProvider = (props) => {
     }
   };
 
+  // добавил для вакансий
+  const fetchVacancies = async () => {
+    setVacanciesLoading(true);
+    setVacanciesError(null);
+    try {
+      const res = await axios.get(backendUrl + "/api/vacancies/public"); //изменил только на не аврувнытые вакансии
+      setVacancies(Array.isArray(res.data.data) ? res.data.data : []);
+    } catch (error) {
+      console.error("Ошибка загрузки вакансий:", error);
+      setVacanciesError("Не удалось загрузить вакансии. Попробуйте позже.");
+      toast.error("Ошибка загрузки вакансий");
+    } finally {
+      setVacanciesLoading(false);
+    }
+  };
+
+  //добавил функцию отправки заявки для вакансии в бд
+  const sendApplication = async (applicationData) => {
+    try {
+      const res = await axios.post(
+        backendUrl + "/api/applications/add",
+        applicationData
+      );
+      if (res.data.success) {
+        toast.success("Заявка отправлена!");
+        return { success: true };
+      } else {
+        toast.error(res.data.message || "Ошибка при отправке");
+        return { success: false, message: res.data.message };
+      }
+    } catch (error) {
+      console.error("Ошибка при отправке заявки:", error);
+      toast.error("Ошибка при отправке заявки");
+      return { success: false, message: "Ошибка при отправке" };
+    }
+  };
+
   //вызываем функцию getProducts data
   useEffect(() => {
     getProductsData();
+    fetchVacancies();
   }, []);
 
   //
@@ -161,6 +204,10 @@ const ShopContextProvider = (props) => {
 
   // при созданиии нового объекта, мы сможем в нем получить доступ к значениям, которые находся в константе value
   const value = {
+    sendApplication, //заявка в вакансию
+    vacancies, // новая страниц вакансий
+    vacanciesLoading, // новая страниц вакансий
+    vacanciesError, // новая страниц вакансий
     products,
     currency,
     delivery_fee,

@@ -8,6 +8,9 @@ import Login from "./components/Login.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 import List from "./pages/List.jsx";
+import VacancyList from "./pages/VacancyList";
+import VacancyApplications from "./pages/VacancyApplication.jsx";
+import AdminAddVacancy from "./pages/AdminAddVacancy.jsx";
 
 export const backendUrl = import.meta.env.VITE_BAKCEND_URL;
 export const currency = "₽"; //замена на Pубль$
@@ -41,6 +44,18 @@ const App = () => {
                 <Route path="/add" element={<Add token={token} />} />
                 <Route path="/list" element={<List token={token} />} />
                 <Route path="/orders" element={<Orders token={token} />} />
+                <Route
+                  path="/vacancies"
+                  element={<VacancyList token={token} />}
+                />
+                <Route
+                  path="/vacancies/:id/applications"
+                  element={<VacancyApplications token={token} />}
+                />
+                <Route
+                  path="/admin/vacancies/add"
+                  element={<AdminAddVacancy token={token} />}
+                />
               </Routes>
             </div>
           </div>
