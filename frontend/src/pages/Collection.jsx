@@ -187,7 +187,7 @@ const Collection = () => {
                 value={"Jackets"}
                 onChange={toggleSubCategory}
               />{" "}
-              Пиджакеты и жакеты
+              Пиджаки и жакеты
             </p>
 
             <p className="flex gap-2">

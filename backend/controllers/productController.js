@@ -112,5 +112,62 @@ const singleProduct = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+// обновление продукта в админке
+// function for updating product (название, категория и цена)
+const updateProduct = async (req, res) => {
+  try {
+    const { id, name, category, subCategory, price } = req.body;
 
-export { addProduct, listProducts, removeProduct, singleProduct };
+    // Проверяем обязательные поля
+    if (!id || !name || !category || !subCategory) {
+      return res.json({
+        success: false,
+        message: "Пожалуйста, заполните все обязательные поля",
+      });
+    }
+
+    const updateData = {
+      name,
+      category,
+      subCategory,
+    };
+
+    if (price !== undefined) {
+      const priceNum = Number(price);
+      if (isNaN(priceNum) || priceNum < 0) {
+        return res.json({
+          success: false,
+          message: "Цена должна быть положительным числом",
+        });
+      }
+      updateData.price = priceNum;
+    }
+
+    const updatedProduct = await productModel.findByIdAndUpdate(
+      id,
+      updateData,
+      { new: true }
+    );
+
+    if (!updatedProduct) {
+      return res.json({ success: false, message: "Товар не найден" });
+    }
+
+    res.json({
+      success: true,
+      message: "Товар обновлен",
+      product: updatedProduct,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
+export {
+  addProduct,
+  listProducts,
+  removeProduct,
+  singleProduct,
+  updateProduct,
+};
