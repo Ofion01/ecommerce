@@ -110,10 +110,10 @@ const AddVacancy = ({ token }) => {
       {/* Массивы */}
 
       {[
-        ["Обязанности", responsibilities, setResponsibilities],
-        ["Требования", requirements, setRequirements],
+        ["Чем предстоит заниматься", responsibilities, setResponsibilities],
+        ["Мы ожидаем", requirements, setRequirements],
         ["Мы предлагаем", offers, setOffers],
-        ["Развитие", development, setDevelopment],
+        ["Развитие для каждого", development, setDevelopment],
       ].map(([label, list, setter]) => (
         <div key={label}>
           <p className="font-medium">{label}</p>
