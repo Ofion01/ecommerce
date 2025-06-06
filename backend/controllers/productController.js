@@ -116,9 +116,16 @@ const singleProduct = async (req, res) => {
 // function for updating product (название, категория и цена)
 const updateProduct = async (req, res) => {
   try {
-    const { id, name, category, subCategory, price } = req.body;
+    const {
+      id,
+      name,
+      category,
+      subCategory,
+      price,
+      existingImages,
+      newImages,
+    } = req.body;
 
-    // Проверяем обязательные поля
     if (!id || !name || !category || !subCategory) {
       return res.json({
         success: false,
@@ -126,10 +133,25 @@ const updateProduct = async (req, res) => {
       });
     }
 
+    // Загружаем новые изображения (если есть)
+    let uploadedNewImages = [];
+
+    if (Array.isArray(newImages) && newImages.length > 0) {
+      uploadedNewImages = await Promise.all(
+        newImages.map(async (base64) => {
+          const result = await cloudinary.uploader.upload(base64, {
+            resource_type: "image",
+          });
+          return result.secure_url;
+        })
+      );
+    }
+
     const updateData = {
       name,
       category,
       subCategory,
+      image: [...(existingImages || []), ...uploadedNewImages],
     };
 
     if (price !== undefined) {

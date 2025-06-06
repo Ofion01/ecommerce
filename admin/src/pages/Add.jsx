@@ -13,7 +13,7 @@ const Add = ({ token }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Men");
-  const [subCategory, setSubCategory] = useState("Jackets");
+  const [subCategory, setSubCategory] = useState("Сostumes");
   const [bestseller, setBestseller] = useState(false);
   const [sizes, setSizes] = useState([]);
 
@@ -177,6 +177,8 @@ const Add = ({ token }) => {
               <option value="Bottomwear">Нижняя одежда</option>
               <option value="Winterwear">Зимняя одежда</option>
               <option value="Suits">Костюмы</option> */}
+              <option value="Сostumes">Костюмы</option>{" "}
+              {/* Добавил категорию костюмов. */}
               <option value="Jackets">Пиджаки и жакеты</option>
               <option value="Shirts">Рубашки и блузки</option>
               <option value="Trousers">Брюки и юбки</option>

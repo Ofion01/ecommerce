@@ -179,7 +179,16 @@ const Collection = () => {
               />{" "}
               Зимняя одежда
             </p> */}
-
+            {/* Добавил костюмы */}
+            <p className="flex gap-2">
+              <input
+                className="w-3"
+                type="checkbox"
+                value={"Сostumes"}
+                onChange={toggleSubCategory}
+              />{" "}
+              Костюмы
+            </p>
             <p className="flex gap-2">
               <input
                 className="w-3"
@@ -253,16 +262,15 @@ const Collection = () => {
         </div>
       </div>
 
-      {/* Right Side */}
+      {/* Правая часть */}
       <div className="flex-1">
-        <div className="flex justify-between text-base sm:text-2xl mb-4">
+        {/* Заголовок и сортировка */}
+        <div className="flex flex-col sm:flex-row justify-between text-base sm:text-2xl mb-4">
           <Title text1={"ВСЕ"} text2={"КОЛЛЕКЦИИ"} />
-          {/* Product Sort */}
           <select
             onChange={(e) => setSortType(e.target.value)}
-            className="border-2 border-gray-300 text-sm px-2"
+            className="border-2 border-gray-300 text-sm px-2 py-1 mt-2 sm:mt-0 w-auto max-w-xs sm:w-auto"
           >
-            {/* <option value="relavent">Сортировать по: Бестселлеры</option> */}
             <option value="low-high">
               Сортировать по цене: от Низкой к Высокой
             </option>
@@ -271,7 +279,26 @@ const Collection = () => {
             </option>
           </select>
         </div>
-
+        {/* предыдущая версия */}
+        {/* Правая  часть */}
+        {/* <div className="flex-1"> */}
+        {/* <div className="flex justify-between text-base sm:text-2xl mb-4"> */}
+        {/* <Title text1={"ВСЕ"} text2={"КОЛЛЕКЦИИ"} /> */}
+        {/* Product Sort */}
+        {/* <select */}
+        {/* onChange={(e) => setSortType(e.target.value)} */}
+        {/* className="border-2 border-gray-300 text-sm px-2" */}
+        {/* > */}
+        {/* <option value="relavent">Сортировать по: Бестселлеры</option> */}{" "}
+        {/* дефолт комм */}
+        {/* <option value="low-high"> */}
+        {/* Сортировать по цене: от Низкой к Высокой */}
+        {/* </option> */}
+        {/* <option value="high-low"> */}
+        {/* Сортировать по цене: от Высокой к Низкой */}
+        {/* </option> */}
+        {/* </select> */}
+        {/* </div> */}
         {/* Map Products */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
           {filterProducts.map((item, index) => (
