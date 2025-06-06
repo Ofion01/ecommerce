@@ -17,9 +17,9 @@ connectDB();
 connectCloudinary();
 
 // middlewares
-app.use(express.json()); //любой запрос будет конвертировться в json
-app.use(cors()); //получаем доступ к бэку через любой api
-// Разрешаем preflight (OPTIONS) запросы для всех маршрутов
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
+app.use(cors());
 app.options("*", cors());
 // api endpoints
 app.use("/api/user", userRouter);
