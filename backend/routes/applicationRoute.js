@@ -4,11 +4,12 @@ import {
   getlistApplication,
   updateApplicationStatus,
 } from "../controllers/applicationController.js";
+import adminAuth from "../middleware/adminAuth.js";
 
 const applicationRouter = express.Router();
 
-applicationRouter.post("/add", addApplication);
+applicationRouter.post("/add", adminAuth, addApplication);
 applicationRouter.get("/", getlistApplication);
-applicationRouter.put("/:id/status", updateApplicationStatus);
+applicationRouter.put("/:id/status", adminAuth, updateApplicationStatus);
 
 export default applicationRouter;

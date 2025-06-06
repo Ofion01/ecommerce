@@ -1,5 +1,5 @@
 import applicationModel from "../models/applicationModel.js";
-
+// контроллер с откликами
 const addApplication = async (req, res) => {
   try {
     const { vacancyId, lastName, firstName, email, phone, description } =

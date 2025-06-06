@@ -17,8 +17,8 @@ connectDB();
 connectCloudinary();
 
 // middlewares
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ limit: "10mb", extended: true }));
+app.use(express.json({ limit: "10mb" })); // позволяет серверу принимать JSON тело до 10 мегабайт.
+app.use(express.urlencoded({ limit: "10mb", extended: true })); // для обработки запросов с application/x-www-form-urlencoded с большим размером.
 app.use(cors());
 app.options("*", cors());
 // api endpoints
