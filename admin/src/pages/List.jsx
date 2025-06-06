@@ -13,7 +13,7 @@ const subCategories = {
   Jackets: "Пиджаки и жакеты",
   Shirts: "Рубашки и блузки",
   Trousers: "Брюки и юбки",
-  Dressers: "Платья",
+  Dresses: "Платья",
   Outerwear: "Пальто и плащи",
   Accessories: "Аксессуары",
   Shoes: "Обувь",
