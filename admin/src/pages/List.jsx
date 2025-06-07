@@ -24,6 +24,9 @@ const getCategoryRus = (categoryEng) => {
   return categories[categoryEng] || categoryEng;
 };
 
+// Все возможные размеры
+const allSizes = ["S", "M", "L", "XL", "XXL", "One Size"];
+
 const List = ({ token }) => {
   const [list, setList] = useState([]);
   const [editId, setEditId] = useState(null);
@@ -80,6 +83,7 @@ const List = ({ token }) => {
       category: item.category,
       subCategory: item.subCategory,
       price: item.price,
+      sizes: item.sizes || [], // добавлено
     });
     setEditImages(item.image.slice(0, 4));
   };
@@ -130,6 +134,7 @@ const List = ({ token }) => {
           category: editData.category,
           subCategory: editData.subCategory,
           price: editData.price,
+          sizes: editData.sizes, // добавлено
           existingImages,
           newImages,
         },
@@ -160,14 +165,15 @@ const List = ({ token }) => {
           className={`hidden md:grid items-center border-gray-100 py-1 px-2 text-sm font-semibold`}
           style={{
             gridTemplateColumns: editId
-              ? "4fr 3fr 1fr 1fr 1fr 1fr"
-              : "minmax(100px, 1fr) minmax(150px, 2fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr) minmax(80px, 1fr) minmax(100px, 1fr)",
+              ? "4fr 3fr 1fr 1fr 2fr 1fr 1fr"
+              : "minmax(100px, 1fr) minmax(150px, 2fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr) minmax(100px, 2fr) minmax(80px, 1fr) minmax(100px, 1fr)",
           }}
         >
           <div className="truncate">Изображения</div>
           <div className="truncate">Название</div>
           <div className="truncate">Категория</div>
           <div className="truncate">Подкатегория</div>
+          <div className="truncate">Размеры</div>
           <div className="truncate">Цена</div>
           <div className="text-center truncate">Действия</div>
         </div>
@@ -182,8 +188,8 @@ const List = ({ token }) => {
               className="grid items-center gap-2 py-1 px-2 border border-gray-200 text-sm"
               style={{
                 gridTemplateColumns: isEdit
-                  ? "4fr 3fr 1fr 1fr 1fr 1fr"
-                  : "minmax(100px, 1fr) minmax(150px, 2fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr) minmax(80px, 1fr) minmax(100px, 1fr)",
+                  ? "4fr 3fr 1fr 1fr 2fr 1fr 1fr"
+                  : "minmax(100px, 1fr) minmax(150px, 2fr) minmax(120px, 1.5fr) minmax(120px, 1.5fr) minmax(100px, 2fr) minmax(80px, 1fr) minmax(100px, 1fr)",
               }}
             >
               {/* Изображения */}
@@ -314,6 +320,40 @@ const List = ({ token }) => {
                   title={subCategories[item.subCategory] || item.subCategory}
                 >
                   {subCategories[item.subCategory] || item.subCategory}
+                </div>
+              )}
+
+              {/* Размеры */}
+              {isEdit ? (
+                <div className="flex gap-2 flex-wrap max-w-xs">
+                  {allSizes.map((size) => (
+                    <label
+                      key={size}
+                      className="inline-flex items-center gap-1 cursor-pointer"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={editData.sizes.includes(size)}
+                        onChange={(e) => {
+                          const checked = e.target.checked;
+                          setEditData((prev) => {
+                            let newSizes = [...prev.sizes];
+                            if (checked) {
+                              if (!newSizes.includes(size)) newSizes.push(size);
+                            } else {
+                              newSizes = newSizes.filter((s) => s !== size);
+                            }
+                            return { ...prev, sizes: newSizes };
+                          });
+                        }}
+                      />
+                      {size}
+                    </label>
+                  ))}
+                </div>
+              ) : (
+                <div className="truncate" title={(item.sizes || []).join(", ")}>
+                  {(item.sizes || []).join(", ")}
                 </div>
               )}
 

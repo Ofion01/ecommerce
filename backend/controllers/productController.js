@@ -122,6 +122,7 @@ const updateProduct = async (req, res) => {
       category,
       subCategory,
       price,
+      sizes, // добавляем sizes
       existingImages,
       newImages,
     } = req.body;
@@ -163,6 +164,17 @@ const updateProduct = async (req, res) => {
         });
       }
       updateData.price = priceNum;
+    }
+
+    // Обработка sizes — если sizes есть, парсим и добавляем в updateData
+    if (sizes !== undefined) {
+      // sizes обычно приходит в виде JSON-строки, преобразуем в массив
+      try {
+        updateData.sizes = JSON.parse(sizes);
+      } catch {
+        // если это не строка JSON, возможно это уже массив
+        updateData.sizes = sizes;
+      }
     }
 
     const updatedProduct = await productModel.findByIdAndUpdate(
