@@ -271,6 +271,9 @@ const Collection = () => {
             onChange={(e) => setSortType(e.target.value)}
             className="border-2 border-gray-300 text-sm px-2 py-1 mt-2 sm:mt-0 w-auto max-w-xs sm:w-auto"
           >
+            <option className="hidden" value="relavent">
+              -
+            </option>
             <option value="low-high">
               Сортировать по цене: от Низкой к Высокой
             </option>

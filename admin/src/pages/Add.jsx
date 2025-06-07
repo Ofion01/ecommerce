@@ -177,8 +177,8 @@ const Add = ({ token }) => {
               <option value="Bottomwear">Нижняя одежда</option>
               <option value="Winterwear">Зимняя одежда</option>
               <option value="Suits">Костюмы</option> */}
-              <option value="Сostumes">Костюмы</option>{" "}
               {/* Добавил категорию костюмов. */}
+              <option value="Сostumes">Костюмы</option>{" "}
               <option value="Jackets">Пиджаки и жакеты</option>
               <option value="Shirts">Рубашки и блузки</option>
               <option value="Trousers">Брюки и юбки</option>

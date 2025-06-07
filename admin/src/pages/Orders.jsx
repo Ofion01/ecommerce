@@ -53,7 +53,7 @@ const Orders = ({ token }) => {
   // вывод ордеров на странице ордеров
   return (
     <div>
-      <h3>Страинца Заказов</h3>
+      <h3>Страница заказов</h3>
       <div>
         {orders.map((order, index) => (
           <div

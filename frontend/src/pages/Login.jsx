@@ -6,7 +6,8 @@ import { toast } from "react-toastify";
 const Login = () => {
   //login or signup
   const [currentState, setCurrentState] = useState("Login"); // дефолт надпись на странице
-  const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
+  const { token, setToken, navigate, backendUrl, getUserCart } =
+    useContext(ShopContext);
 
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +30,7 @@ const Login = () => {
           //сохраняем токен
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          await getUserCart(response.data.token); // загружаем корзину
         } else {
           toast.error(response.data.message);
         }
@@ -43,6 +45,7 @@ const Login = () => {
         if (responce.data.success) {
           setToken(responce.data.token);
           localStorage.setItem("token", responce.data.token);
+          await getUserCart(responce.data.token);
         } else {
           toast.error(responce.data.message);
         }
