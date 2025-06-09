@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true }, //unique - уникальные данные. Если мыло зарегано, на это же мыло зарегаться не получиться.
+    email: { type: String, required: true, unique: true }, //unique - уникальные данные. Если mail зарегестрирован, на этот же email зарегистрировать не получиться.
     password: { type: String, required: true },
     cartData: { type: Object, default: {} },
   },
